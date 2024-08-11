@@ -1,12 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 body {
   font-family: "Arial", sans-serif;
   color: #ffffff;
-  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100vh;
 }
-/**/
 /* scrol en web */
 ::-webkit-scrollbar {
   width: 16px;
@@ -15,6 +24,16 @@ body {
   background: #673ab7;
 }
 ::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(
+    linear,
+    left top, left bottom,
+    from(#ffeb3b),
+    color-stop(#ff9800),
+    color-stop(#ff5722),
+    color-stop(#e91e63),
+    color-stop(#9c27b0),
+    to(#673ab7)
+  );
   background: linear-gradient(
     180deg,
     #ffeb3b,
@@ -27,6 +46,16 @@ body {
   border: 2px solid #000e33;
 }
 ::-webkit-scrollbar-thumb:hover {
+  background: -webkit-gradient(
+    linear,
+    left top, left bottom,
+    from(#ff9800),
+    color-stop(#ff5722),
+    color-stop(#e91e63),
+    color-stop(#9c27b0),
+    color-stop(#673ab7),
+    to(#ffeb3b)
+  );
   background: linear-gradient(
     180deg,
     #ff9800,
@@ -51,18 +80,35 @@ header {
   width: 100%;
   min-height: 100px;
   background-color: #000e33;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   position: fixed;
 }
 .encryptorContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-left: 25px;
 }
 .encryptorContainer img {
@@ -76,6 +122,25 @@ header {
   font-size: 39px;
   margin: 0;
   color: transparent;
+  background-image: -o-linear-gradient(
+    top,
+    #f1f2f4 0%,
+    #f1f2f4 33.33%,
+    #aaabac 33.33%,
+    #aaabac 66.66%,
+    #616161 66.66%,
+    #616161 100%
+  );
+  background-image: -webkit-gradient(
+    linear,
+    left top, left bottom,
+    from(#f1f2f4),
+    color-stop(33.33%, #f1f2f4),
+    color-stop(33.33%, #aaabac),
+    color-stop(66.66%, #aaabac),
+    color-stop(66.66%, #616161),
+    to(#616161)
+  );
   background-image: linear-gradient(
     180deg,
     #f1f2f4 0%,
@@ -104,12 +169,22 @@ header {
 }
 /**/
 main {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  perspective: 1000px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
   margin-top: 100px;
+  background: -o-linear-gradient(315deg, #673ab7, #e91e63);
   background: linear-gradient(135deg, #673ab7, #e91e63);
 }
 .container {
@@ -119,32 +194,52 @@ main {
   border-radius: 20px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-  transform-style: preserve-3d;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
-  user-select: none;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   -moz-user-select: none;
 }
 .hoverActive {
-  transform: translateZ(-50px) rotateY(6deg) rotateX(2deg);
-  box-shadow: 20px -10px 30px rgba(0, 0, 0, 0.6),
+  -webkit-transform: translateZ(-50px) rotateY(6deg) rotateX(2deg);
+          transform: translateZ(-50px) rotateY(6deg) rotateX(2deg);
+  -webkit-box-shadow: 20px -10px 30px rgba(0, 0, 0, 0.6),
+    -20px 10px 30px rgba(0, 0, 0, 0.3);
+          box-shadow: 20px -10px 30px rgba(0, 0, 0, 0.6),
     -20px 10px 30px rgba(0, 0, 0, 0.3);
 }
 .hoverActiveOutput {
-  transform: translateZ(-50px) rotateY(-6deg) rotateX(-2deg);
-  box-shadow: -20px 10px 30px rgba(0, 0, 0, 0.6),
+  -webkit-transform: translateZ(-50px) rotateY(-6deg) rotateX(-2deg);
+          transform: translateZ(-50px) rotateY(-6deg) rotateX(-2deg);
+  -webkit-box-shadow: -20px 10px 30px rgba(0, 0, 0, 0.6),
+    20px -10px 30px rgba(0, 0, 0, 0.3);
+          box-shadow: -20px 10px 30px rgba(0, 0, 0, 0.6),
     20px -10px 30px rgba(0, 0, 0, 0.3);
 }
 .containerInput.hoverActive,
 .containerInput:hover {
-  transform: translateZ(-50px) rotateY(6deg) rotateX(2deg);
-  box-shadow: 20px -10px 30px rgba(0, 0, 0, 0.6),
+  -webkit-transform: translateZ(-50px) rotateY(6deg) rotateX(2deg);
+          transform: translateZ(-50px) rotateY(6deg) rotateX(2deg);
+  -webkit-box-shadow: 20px -10px 30px rgba(0, 0, 0, 0.6),
+    -20px 10px 30px rgba(0, 0, 0, 0.3);
+          box-shadow: 20px -10px 30px rgba(0, 0, 0, 0.6),
     -20px 10px 30px rgba(0, 0, 0, 0.3);
 }
 .containerOutput.hoverActiveOutput,
 .containerOutput:hover {
-  transform: translateZ(-50px) rotateY(-6deg) rotateX(-2deg);
-  box-shadow: -20px 10px 30px rgba(0, 0, 0, 0.6),
+  -webkit-transform: translateZ(-50px) rotateY(-6deg) rotateX(-2deg);
+          transform: translateZ(-50px) rotateY(-6deg) rotateX(-2deg);
+  -webkit-box-shadow: -20px 10px 30px rgba(0, 0, 0, 0.6),
+    20px -10px 30px rgba(0, 0, 0, 0.3);
+          box-shadow: -20px 10px 30px rgba(0, 0, 0, 0.6),
     20px -10px 30px rgba(0, 0, 0, 0.3);
 }
 /**/
@@ -165,8 +260,12 @@ main {
   background-color: #333;
   color: #ffffff;
   font-size: 17px;
-  box-sizing: border-box;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
   resize: none;
   overflow-y: auto;
@@ -175,7 +274,8 @@ main {
 .output:hover {
   outline: none;
   border-color: #ff9800;
-  box-shadow: 0 10px 25px rgba(255, 152, 0, 0.7);
+  -webkit-box-shadow: 0 10px 25px rgba(255, 152, 0, 0.7);
+          box-shadow: 0 10px 25px rgba(255, 152, 0, 0.7);
 }
 .output {
   white-space: pre-wrap;
@@ -183,7 +283,9 @@ main {
   text-align: left;
   position: relative;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 /**/
 button {
@@ -195,14 +297,20 @@ button {
   cursor: pointer;
   margin: 5px 5px 30px 5px;
   font-size: 16px;
+  -webkit-transition: background-color 0.3s, -webkit-box-shadow 0.3s;
+  transition: background-color 0.3s, -webkit-box-shadow 0.3s;
+  -o-transition: background-color 0.3s, box-shadow 0.3s;
   transition: background-color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
+  -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 1;
 }
 button:hover {
   background-color: #ff5722;
-  box-shadow: 0 -10px 24px rgba(255, 87, 34, 0.7);
+  -webkit-box-shadow: 0 -10px 24px rgba(255, 87, 34, 0.7);
+          box-shadow: 0 -10px 24px rgba(255, 87, 34, 0.7);
 }
 .fa-copy {
   margin-right: 8px;
@@ -211,12 +319,25 @@ button:hover {
 footer {
   width: 100%;
   background-color: #000e33;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 -2px 5px rgba(0, 14, 51, 0.5);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 -2px 5px rgba(0, 14, 51, 0.5);
+          box-shadow: 0 -2px 5px rgba(0, 14, 51, 0.5);
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -moz-user-select: none;
 }
 .footer-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .footer-links {
@@ -228,6 +349,8 @@ footer {
   color: #ffeb3b;
   text-shadow: 0 0 5px #ff9800;
   margin: 10px 0;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
 .footer-links a {
@@ -235,6 +358,8 @@ footer {
   text-shadow: 0 0 5px #ff9800;
   text-decoration: none;
   font-weight: bold;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
 .footer-links a:hover {
@@ -262,6 +387,8 @@ footer {
     width: 90%;
     height: auto;
     margin: auto auto;
+    -webkit-transition: none;
+    -o-transition: none;
     transition: none;
   }
   .containerOutput {
@@ -273,8 +400,10 @@ footer {
   .containerInput:hover,
   .containerOutput.hoverActiveOutput,
   .containerOutput:hover {
-    transform: translateZ(0) rotateY(0deg) rotateX(0deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    -webkit-transform: translateZ(0) rotateY(0deg) rotateX(0deg);
+            transform: translateZ(0) rotateY(0deg) rotateX(0deg);
+    -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
   }
   .container h2 {
     padding-top: 25px;
@@ -287,8 +416,13 @@ footer {
 }
 @media screen and (width < 450px) {
   .InteractionContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .InteractionContainer button {
     margin-bottom: 10px;
